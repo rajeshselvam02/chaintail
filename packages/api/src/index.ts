@@ -15,6 +15,7 @@ import { mempoolRouter } from './routes/mempool';
 import { threatIntelRouter } from './routes/threat-intel';
 import { webhooksRouter } from './routes/webhooks';
 import { entitiesRouter } from './routes/entities';
+import { ethRouter } from './routes/eth';
 import { mlScoreRouter } from './routes/ml-score';
 import { casesRouter } from './routes/cases';
 import { patternsRouter } from './routes/patterns';
@@ -61,6 +62,7 @@ async function main() {
   app.use('/api/threat-intel', threatIntelRouter(db));
   app.use('/api/webhooks',     webhooksRouter(db));
   app.use('/api/entities',     entitiesRouter(db));
+  app.use('/api/eth',         ethRouter(db));
   app.use('/api/ml-score',    mlScoreRouter(db));
   app.use('/api/cases',       casesRouter(db));
   app.use('/api/patterns',     patternsRouter(db));

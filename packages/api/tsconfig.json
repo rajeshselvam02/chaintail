@@ -37,6 +37,9 @@
       ],
       "@chaintail/ml-scorer": [
         "../ml-scorer/src/index.ts"
+      ],
+      "@chaintail/eth-connector": [
+        "../eth-connector/src/index.ts"
       ]
     },
     "baseUrl": "."
