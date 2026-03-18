@@ -15,7 +15,8 @@
       "@chaintail/shared": ["../shared/src/index.ts"],
       "@chaintail/node-connector": ["../node-connector/src/index.ts"],
       "@chaintail/graph-tracer": ["../graph-tracer/src/index.ts"],
-      "@chaintail/clustering": ["../clustering/src/index.ts"]
+      "@chaintail/clustering": ["../clustering/src/index.ts"],
+      "@chaintail/entity-labels": ["../entity-labels/src/index.ts"]
     },
     "baseUrl": "."
   },
