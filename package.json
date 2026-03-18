@@ -1,0 +1,17 @@
+{
+  "name": "chaintail",
+  "version": "0.1.0",
+  "description": "Open source Bitcoin AML forensics tool",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w packages/node-connector\" \"npm run dev -w packages/mempool-watcher\"",
+    "build": "npm run build --workspaces",
+    "migrate": "npm run migrate -w packages/shared"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "concurrently": "^8.2.0",
+    "typescript": "^5.3.0"
+  }
+}

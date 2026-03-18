@@ -1,0 +1,25 @@
+{
+  "name": "@chaintail/mempool-watcher",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@chaintail/node-connector": "*",
+    "@chaintail/shared": "*",
+    "dotenv": "^16.4.0",
+    "eventemitter3": "^5.0.0",
+    "ioredis": "^5.3.0",
+    "pg": "^8.11.0",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.18.1",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.0"
+  }
+}
