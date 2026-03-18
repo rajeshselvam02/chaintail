@@ -3,11 +3,20 @@
   "version": "0.1.0",
   "description": "Open source Bitcoin AML forensics tool",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "concurrently \"npm run dev -w packages/node-connector\" \"npm run dev -w packages/mempool-watcher\"",
     "build": "npm run build --workspaces",
-    "migrate": "npm run migrate -w packages/shared"
+    "migrate": "npm run migrate -w packages/shared",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:build": "docker compose build",
+    "docker:logs": "docker compose logs -f",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up -d",
+    "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
+    "docker:reset": "docker compose down -v && docker compose up -d"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

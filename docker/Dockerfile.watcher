@@ -1,0 +1,15 @@
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+COPY packages/shared/package*.json ./packages/shared/
+COPY packages/node-connector/package*.json ./packages/node-connector/
+COPY packages/mempool-watcher/package*.json ./packages/mempool-watcher/
+RUN npm install --legacy-peer-deps
+COPY packages/shared ./packages/shared
+COPY packages/node-connector ./packages/node-connector
+COPY packages/mempool-watcher ./packages/mempool-watcher
+COPY tsconfig.json ./
+RUN npm run build -w packages/shared
+RUN npm run build -w packages/node-connector
+RUN npm run build -w packages/mempool-watcher
+CMD ["node", "packages/mempool-watcher/dist/index.js"]

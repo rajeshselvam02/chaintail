@@ -1,0 +1,12 @@
+FROM node:22-alpine
+WORKDIR /app
+COPY package*.json ./
+COPY packages/shared/package*.json ./packages/shared/
+COPY packages/threat-feeds/package*.json ./packages/threat-feeds/
+RUN npm install --legacy-peer-deps
+COPY packages/shared ./packages/shared
+COPY packages/threat-feeds ./packages/threat-feeds
+COPY tsconfig.json ./
+RUN npm run build -w packages/shared
+RUN npm run build -w packages/threat-feeds
+CMD ["node", "packages/threat-feeds/dist/index.js"]
