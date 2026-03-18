@@ -2,6 +2,7 @@ import { Pool } from 'pg';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 import { FeedImporter } from './importer';
+import { OFACSync } from './ofac';
 import { WebhookEngine } from './webhooks';
 import { AddressWatcher } from './address-watcher';
 
@@ -50,11 +51,23 @@ if (require.main === module) {
       return;
     }
 
+    if (command === 'ofac') {
+      const ofac = new OFACSync(db);
+      const result = await ofac.sync();
+      console.log('OFAC sync done:', result);
+      await db.end();
+      return;
+    }
+
     // Default: sync feeds
     const importer = new FeedImporter(db);
     console.log('\n╔══════════════════════════════════════════════╗');
     console.log('║     ChainTrail Threat Intel Sync             ║');
     console.log('╚══════════════════════════════════════════════╝\n');
+
+    // Also sync OFAC
+    const ofac = new OFACSync(db);
+    await ofac.sync();
 
     const results = await importer.importAll();
 
@@ -78,3 +91,5 @@ if (require.main === module) {
     await db.end();
   })();
 }
+// OFAC export
+export { OFACSync } from './ofac';
