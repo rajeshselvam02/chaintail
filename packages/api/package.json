@@ -20,7 +20,8 @@
     "@chaintail/entity-labels": "*",
     "@chaintail/case-manager": "*",
     "@chaintail/ml-scorer": "*",
-    "@chaintail/eth-connector": "*"
+    "@chaintail/eth-connector": "*",
+    "@chaintail/saas": "*"
   },
   "devDependencies": {
     "@types/express": "^4.17.0",

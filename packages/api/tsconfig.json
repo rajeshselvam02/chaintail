@@ -40,6 +40,9 @@
       ],
       "@chaintail/eth-connector": [
         "../eth-connector/src/index.ts"
+      ],
+      "@chaintail/saas": [
+        "../saas/src/index.ts"
       ]
     },
     "baseUrl": "."

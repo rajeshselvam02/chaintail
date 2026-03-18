@@ -15,6 +15,7 @@ import { mempoolRouter } from './routes/mempool';
 import { threatIntelRouter } from './routes/threat-intel';
 import { webhooksRouter } from './routes/webhooks';
 import { entitiesRouter } from './routes/entities';
+import { saasRouter, createAuthMiddleware, createQuotaMiddleware, requirePlan } from '@chaintail/saas';
 import { ethRouter } from './routes/eth';
 import { mlScoreRouter } from './routes/ml-score';
 import { casesRouter } from './routes/cases';
@@ -53,6 +54,7 @@ async function main() {
     console.log(new Date().toISOString() + ' ' + req.method + ' ' + req.path);
     next();
   });
+  app.use('/api/auth',        saasRouter(db));
   app.use('/api/health',       healthRouter(db, redis));
   app.use('/api/address',      addressRouter(db, connector));
   app.use('/api/trace',        traceRouter(db, connector));
