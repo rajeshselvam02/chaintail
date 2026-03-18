@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
-    "lib": ["ES2020"],
+    "lib": [
+      "ES2020"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -12,13 +14,32 @@
     "declaration": true,
     "sourceMap": true,
     "paths": {
-      "@chaintail/shared": ["../shared/src/index.ts"],
-      "@chaintail/node-connector": ["../node-connector/src/index.ts"],
-      "@chaintail/graph-tracer": ["../graph-tracer/src/index.ts"],
-      "@chaintail/clustering": ["../clustering/src/index.ts"],
-      "@chaintail/entity-labels": ["../entity-labels/src/index.ts"]
+      "@chaintail/shared": [
+        "../shared/src/index.ts"
+      ],
+      "@chaintail/node-connector": [
+        "../node-connector/src/index.ts"
+      ],
+      "@chaintail/graph-tracer": [
+        "../graph-tracer/src/index.ts"
+      ],
+      "@chaintail/clustering": [
+        "../clustering/src/index.ts"
+      ],
+      "@chaintail/entity-labels": [
+        "../entity-labels/src/index.ts"
+      ],
+      "@chaintail/case-manager": [
+        "../case-manager/src/index.ts"
+      ],
+      "@chaintail/pattern-detector": [
+        "../pattern-detector/src/index.ts"
+      ]
     },
     "baseUrl": "."
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

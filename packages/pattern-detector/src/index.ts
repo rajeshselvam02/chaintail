@@ -1,0 +1,1 @@
+export { PatternDetector } from './patterns';

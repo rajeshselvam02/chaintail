@@ -15,6 +15,8 @@ import { mempoolRouter } from './routes/mempool';
 import { threatIntelRouter } from './routes/threat-intel';
 import { webhooksRouter } from './routes/webhooks';
 import { entitiesRouter } from './routes/entities';
+import { casesRouter } from './routes/cases';
+import { patternsRouter } from './routes/patterns';
 
 dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
@@ -58,6 +60,8 @@ async function main() {
   app.use('/api/threat-intel', threatIntelRouter(db));
   app.use('/api/webhooks',     webhooksRouter(db));
   app.use('/api/entities',     entitiesRouter(db));
+  app.use('/api/cases',       casesRouter(db));
+  app.use('/api/patterns',     patternsRouter(db));
   app.use((_req, res) => res.status(404).json({ error: 'Endpoint not found' }));
   app.listen(PORT, () => {
     console.log('ChainTrail API running on port ' + PORT);
